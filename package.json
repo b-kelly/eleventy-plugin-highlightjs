@@ -1,0 +1,25 @@
+{
+  "name": "eleventy-plugin-highlightjs",
+  "version": "0.1.0",
+  "description": "An Eleventy plugin for syntax highlighting via highlight.js for Markdown and Liquid templates.",
+  "main": ".eleventy.js",
+  "scripts": {
+    "demo": "npx @11ty/eleventy --input=demo --output=demo/_site --config=demo/eleventy-config.js"
+  },
+  "keywords": [
+    "eleventy",
+    "eleventy-plugin",
+    "highlight.js"
+  ],
+  "author": "Ben Kelly",
+  "license": "MIT",
+  "peerDependencies": {
+    "@11ty/eleventy": "^0.11.0"
+  },
+  "dependencies": {
+    "highlight.js": "^10.1.2"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^0.11.0"
+  }
+}
