@@ -19,8 +19,10 @@ module.exports = function (content, language, highlightNumbers, options = {}) {
         return line;
     });
 
+    let classString = options.className ? " " + options.className : "";
+
     return (
-        `<pre class="language-${language}"><code class="language-${language}">` +
+        `<pre class="language-${language}${classString}"><code class="language-${language}${classString}">` +
         lines.join("<br>") +
         "</code></pre>"
     );

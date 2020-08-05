@@ -24,6 +24,11 @@ function hasTemplateFormat(templateFormats = ["*"], format = false) {
 module.exports = {
     initArguments: { hljs },
     configFunction: function (eleventyConfig, options = {}) {
+        options = Object.assign(
+            { alwaysWrapLineHighlights: false, className: "" },
+            options
+        );
+
         if (hasTemplateFormat(options.templateFormats, "liquid")) {
             eleventyConfig.addLiquidTag("highlight", (liquidEngine) => {
                 // {% highlight js 0 2 %}

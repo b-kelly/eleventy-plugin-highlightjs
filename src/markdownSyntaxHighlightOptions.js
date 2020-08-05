@@ -32,7 +32,9 @@ module.exports = function (options = {}) {
             return line;
         });
 
-        return `<pre class="language-${language}"><code class="language-${language}">${lines.join(
+        let classString = options.className ? " " + options.className : "";
+
+        return `<pre class="language-${language}${classString}"><code class="language-${language}${classString}">${lines.join(
             "<br>"
         )}</code></pre>`;
     };
