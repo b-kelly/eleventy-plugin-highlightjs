@@ -17,7 +17,7 @@ module.exports = function (options = {}) {
         if (language === "text") {
             html = str;
         } else {
-            html = hljs.highlight(language, str).value;
+            html = hljs.highlight(str, { language }).value;
         }
 
         let hasHighlightNumbers = split.length > 0;

@@ -6,7 +6,7 @@ module.exports = function (content, language, highlightNumbers, options = {}) {
     if (language === "text") {
         highlightedContent = content.trim();
     } else {
-        highlightedContent = hljs.highlight(language, content.trim()).value;
+        highlightedContent = hljs.highlight(content.trim(), { language }).value;
     }
 
     let group = new HighlightLinesGroup(highlightNumbers);
