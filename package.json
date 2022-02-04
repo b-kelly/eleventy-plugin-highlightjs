@@ -19,12 +19,12 @@
     "url": "https://github.com/b-kelly/eleventy-plugin-highlightjs.git"
   },
   "peerDependencies": {
-    "@11ty/eleventy": ">=0.12.1"
+    "@11ty/eleventy": ">=1.0.0"
   },
   "dependencies": {
     "highlight.js": "^11.0.1"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^0.12.1"
+    "@11ty/eleventy": "^1.0.0"
   }
 }
