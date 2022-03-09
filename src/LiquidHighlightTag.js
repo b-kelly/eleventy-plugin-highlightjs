@@ -16,9 +16,10 @@ class LiquidHighlightTag {
 
                     this.tokens = [];
 
-                    var stream = highlighter.liquidEngine.parser.parseStream(
-                        remainTokens
-                    );
+                    var stream =
+                        highlighter.liquidEngine.parser.parseStream(
+                            remainTokens
+                        );
 
                     stream
                         .on("token", (token) => {
@@ -29,15 +30,18 @@ class LiquidHighlightTag {
                             }
                         })
                         .on("end", (x) => {
-                            throw new Error("tag highlight not closed");
+                            throw new Error(
+                                `tag ${tagToken.getText()} not closed`
+                            );
                         });
 
                     stream.start();
                 },
                 render: function (scope, hash) {
-                    let tokens = this.tokens.map((token) => token.raw);
+                    let tokens = this.tokens.map((token) => {
+                        return token.raw || token.getText();
+                    });
                     let tokenStr = tokens.join("").trim();
-
                     return Promise.resolve(
                         HighlightPairedShortcode(
                             tokenStr,
