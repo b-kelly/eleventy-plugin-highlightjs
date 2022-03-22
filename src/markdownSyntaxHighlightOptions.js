@@ -1,7 +1,11 @@
 const hljs = require("highlight.js");
 const HighlightLinesGroup = require("./HighlightLinesGroup");
+const getAttributes = require("./getAttributes");
 
 module.exports = function (options = {}) {
+    const preAttributes = getAttributes(options.preAttributes);
+    const codeAttributes = getAttributes(options.codeAttributes);
+
     return function (str, language) {
         if (!language) {
             // empty string means defer to the upstream escaping code built into markdown lib.
@@ -34,7 +38,7 @@ module.exports = function (options = {}) {
 
         let classString = options.className ? " " + options.className : "";
 
-        return `<pre class="language-${language}${classString}"><code class="language-${language}${classString}">${lines.join(
+        return `<pre class="language-${language}${classString}"${preAttributes}><code class="language-${language}${classString}"${codeAttributes}>${lines.join(
             "<br>"
         )}</code></pre>`;
     };

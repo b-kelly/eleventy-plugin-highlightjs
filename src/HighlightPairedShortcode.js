@@ -1,8 +1,12 @@
 const hljs = require("highlight.js");
 const HighlightLinesGroup = require("./HighlightLinesGroup");
+const getAttributes = require("./getAttributes");
 
 module.exports = function (content, language, highlightNumbers, options = {}) {
-    let highlightedContent;
+    const preAttributes = getAttributes(options.preAttributes);
+    const codeAttributes = getAttributes(options.codeAttributes);
+  
+      let highlightedContent;
     if (language === "text") {
         highlightedContent = content.trim();
     } else {
@@ -22,7 +26,7 @@ module.exports = function (content, language, highlightNumbers, options = {}) {
     let classString = options.className ? " " + options.className : "";
 
     return (
-        `<pre class="language-${language}${classString}"><code class="language-${language}${classString}">` +
+        `<pre class="language-${language}${classString}"${preAttributes}><code class="language-${language}${classString}"${codeAttributes}>` +
         lines.join("<br>") +
         "</code></pre>"
     );
