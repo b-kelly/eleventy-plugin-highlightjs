@@ -22,9 +22,9 @@
     "@11ty/eleventy": ">=1.0.0"
   },
   "dependencies": {
-    "highlight.js": "^11.4.0"
+    "highlight.js": "^11.5.1"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^1.0.0"
+    "@11ty/eleventy": "^1.0.1"
   }
 }
