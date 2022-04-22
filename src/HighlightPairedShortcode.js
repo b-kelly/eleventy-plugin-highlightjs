@@ -5,8 +5,8 @@ const getAttributes = require("./getAttributes");
 module.exports = function (content, language, highlightNumbers, options = {}) {
     const preAttributes = getAttributes(options.preAttributes);
     const codeAttributes = getAttributes(options.codeAttributes);
-  
-      let highlightedContent;
+
+    let highlightedContent;
     if (language === "text") {
         highlightedContent = content.trim();
     } else {
