@@ -29,6 +29,19 @@ module.exports = {
             options
         );
 
+        // A universal filter for all
+        // {{ some_variable | highlight: "html 0 2-3" }}
+        eleventyConfig.addFilter("highlight", (content, arguments) => {
+            const [language, ...highlightNumbers] = arguments.split(" ");
+
+            return HighlightPairedShortcode(
+                content,
+                language,
+                highlightNumbers.join(" "),
+                options,
+            );
+        });
+
         if (hasTemplateFormat(options.templateFormats, "liquid")) {
             eleventyConfig.addLiquidTag("highlight", (liquidEngine) => {
                 // {% highlight js 0 2 %}
